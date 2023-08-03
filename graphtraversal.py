@@ -107,7 +107,11 @@ class Solution:
             #return type: int
             
             #TODO: Write code below to return an int with the solution to the prompt.
-            return 190
+            counter = 0
+            for node in graph.get_nodes():
+                if type(node) == "int":
+                    counter += node
+            return counter
                     
                 
                 
