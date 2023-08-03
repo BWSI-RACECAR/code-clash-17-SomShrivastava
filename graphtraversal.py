@@ -121,7 +121,7 @@ class Solution:
                         #         new_graph = graph.get_nodes()[obstacle]
                         #         recursion(new_graph, new_obstacle)
                             
-            recursion()
+            recursion(graph, start_node)
             
             return max(combinations)
                     
