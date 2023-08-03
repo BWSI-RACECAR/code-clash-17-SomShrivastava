@@ -109,7 +109,7 @@ class Solution:
             #TODO: Write code below to return an int with the solution to the prompt.
             counter = 0
             for node in graph.get_nodes():
-                if type(node) == "int":
+                if isinstance(node, int):
                     counter += node
             return counter
                     
