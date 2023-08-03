@@ -113,11 +113,12 @@ class Solution:
             def recursion(graph, start_node):
                 for (obstacle, time) in graph.get_nodes()[start_node]:
                     counter += time
-                    for (new_obstacle, new_time) in graph.get_nodes()[start_node].items():
-                        if new_obstacle == "Finish":
-                            return max(combinations)
-                        new_graph = graph.get_nodes()[obstacle]
-                        recursion(new_graph, new_obstacle)
+                    if type(graph.get_nodes()[start_node]) == "dict":
+                        for (new_obstacle, new_time) in graph.get_nodes()[start_node].items():
+                            if new_obstacle == "Finish":
+                                return max(combinations)
+                            new_graph = graph.get_nodes()[obstacle]
+                            recursion(new_graph, new_obstacle)
                             
                     
                 
