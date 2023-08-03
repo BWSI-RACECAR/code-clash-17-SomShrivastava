@@ -108,7 +108,6 @@ class Solution:
             #TODO: Write code below to return an int with the solution to the prompt.
             combinations = []
             counter = 0
-            recursion()
                     
             def recursion(graph, start_node):
                 if str(graph.get_nodes()[start_node]) > 2:                    
@@ -122,6 +121,8 @@ class Solution:
                         #         new_graph = graph.get_nodes()[obstacle]
                         #         recursion(new_graph, new_obstacle)
                             
+            recursion()
+            
             return max(combinations)
                     
                 
