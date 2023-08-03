@@ -107,11 +107,13 @@ class Solution:
             #return type: int
             
             #TODO: Write code below to return an int with the solution to the prompt.
-            counter = 0
-            for node in graph.get_nodes():
-                if isinstance(node, int):
-                    counter += node
-            return counter
+            print(graph.get_nodes())
+            return graph.get_nodes()
+            # counter = 0
+            # for node in graph.get_nodes():
+            #     if isinstance(node, int):
+            #         counter += node
+            # return counter
                     
                 
                 
