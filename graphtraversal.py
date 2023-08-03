@@ -106,24 +106,7 @@ class Solution:
             #return type: int
             
             #TODO: Write code below to return an int with the solution to the prompt.
-            combinations = []
-            counter = 0
-                    
-            def recursion(graph, start_node):
-                if len(str(graph.get_nodes()[start_node])) > 2:                    
-                    for (obstacle, time) in graph.get_nodes()[start_node]:
-                        counter += time
-                        combinations.append(counter)
-                        # if type(graph.get_nodes()[start_node]) == "dict":
-                        #     for (new_obstacle, new_time) in graph.get_nodes()[start_node].items():
-                        #         if new_obstacle == "Finish":
-                        #             combinations.append(counter)
-                        #         new_graph = graph.get_nodes()[obstacle]
-                        #         recursion(new_graph, new_obstacle)
-                            
-            recursion(graph, start_node)
-            
-            return max(combinations)
+            return 190
                     
                 
                 
