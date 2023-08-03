@@ -110,7 +110,7 @@ class Solution:
             counter = 0
                     
             def recursion(graph, start_node):
-                if str(graph.get_nodes()[start_node]) > 2:                    
+                if len(str(graph.get_nodes()[start_node])) > 2:                    
                     for (obstacle, time) in graph.get_nodes()[start_node]:
                         counter += time
                         combinations.append(counter)
