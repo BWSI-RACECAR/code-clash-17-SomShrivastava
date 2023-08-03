@@ -65,6 +65,7 @@ class Graph(object):
         self.nodes = nodes
         self.graph = self.construct_graph(nodes, init_graph)
         
+        
     def construct_graph(self, nodes, init_graph):
         '''
         This method makes sure that the graph is symmetrical. In other words, if there's a path from node A to B with a value V, there needs to be a path from node B to node A with a value V.
