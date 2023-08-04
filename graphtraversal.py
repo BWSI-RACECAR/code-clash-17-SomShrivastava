@@ -37,34 +37,13 @@ Output: 190
 
 """
 
-# Start,Invisible Maze,Ice Valley,The Labyrinth,Tower of Doom,Park Walk,Cone Slalom,Street Dodge,Sloped Madness,Finish    
-# Invisible Maze,The Labyrinth  
-# 15 20   
-# Park Walk    
-# 45    
-# Tower of Doom,Sloped Madness  
-# 45 85   
-# Ice Valley,Sloped Madness    
-# 45 155    
-# Cone Slalom,Ice Valley    
-# 10 45 
-# Tower of Doom  
-# 45  
-# Sloped Madness,Street Dodge 
-# 45 30  
-# Finish  
-# 70  
-# Finish  
-# 60  
-# Finish
-
 import sys
+
 
 class Graph(object):
     def __init__(self, nodes, init_graph):
         self.nodes = nodes
         self.graph = self.construct_graph(nodes, init_graph)
-        
         
     def construct_graph(self, nodes, init_graph):
         '''
@@ -99,25 +78,34 @@ class Graph(object):
         "Returns the value of an edge between two nodes."
         return self.graph[node1][node2]
 
+def go(graph:Graph,start,l,a):
+    
+    if start == "Finish":
+        return 0
+    if l == 0:
+        return sys.maxsize
+    min = sys.maxsize
+    mina= ""
+    for i in graph.get_outgoing_edges(start):
+        temp = go(graph,i,l-1,a)
+        if temp < min:
+            min = temp
+            mina = i
+    a.append(mina)
+    return min + graph.value(start,i)
+
 class Solution:
     
-    def spath_algo(self, graph, start_node):
-            #type graph: String Dictionary
-            #type start_node: 
-            #return type: int
-            
-            #TODO: Write code below to return an int with the solution to the prompt.
-            print(graph.get_nodes())
-            return graph.get_nodes()
-            # counter = 0
-            # for node in graph.get_nodes():
-            #     if isinstance(node, int):
-            #         counter += node
-            # return counter
-                    
-                
-                
-
+    def spath_algo(self, graph:Graph, start_node):
+        #type graph: String Dictionary
+        #type start_node: 
+        #return type: int
+        all = []
+        a = go(graph,start_node,len(graph.get_nodes()),all)
+        print(a-5)
+        print(a-15)
+        return all,a
+    
 def main():
     tc1 = Solution()
     in_graph = {}
@@ -133,7 +121,7 @@ def main():
 
     graph = Graph(nodes, in_graph)
     _, shortest_path = tc1.spath_algo(graph, "Start")
-    print(shortest_path["Finish"])
+    print(shortest_path)
 
 if __name__ == "__main__":
     main()
